@@ -8,9 +8,21 @@
     <link rel="stylesheet" href="index.css" type="text/css" />
   </head>
   <body>
-    <div id="progressbar"></div>
-    <div id="content"></div>
-    <div id="slide-count"></div>
+    <div id="hello" style="display: none">
+      <h1>marker 📜</h1>
+      <span>
+        Present without the hassle. All you need is a markdown source.
+      </span>
+      <div class="urlbox">
+        <input id="present-link" placeholder="Mardown content URL" />
+        <button id="present-button">Present</button>
+      </div>
+    </div>
+    <div id="present" sytle="display: none">
+      <div id="progressbar"></div>
+      <div id="content"></div>
+      <div id="slide-count"></div>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/12.0.4/markdown-it.js"></script>
     <script src="https://unpkg.com/tinykeys@1.1.1/dist/tinykeys.umd.js"></script>
     <link

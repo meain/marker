@@ -66,12 +66,24 @@ Boo 🐶
 ![sample-image](https://puppytoob.com/wp-content/uploads/2018/02/Boo-Dog-1.jpg)
 `;
 
+const hello = document.getElementById("hello");
+const present = document.getElementById("present");
+function showHello() {
+  hello.style.display = "block";
+  present.style.display = "none";
+}
+function showPresentation() {
+  hello.style.display = "none";
+  present.style.display = "block";
+}
+
 if (contentUrl !== null) {
   fetch(contentUrl)
     .then((data) => data.text())
     .then((content) => {
-      // console.log(content);
-      content = sampleContent; // TODO: remove this in prod
+      console.log(content);
+      showPresentation();
+      // content = sampleContent; // TODO: remove this in prod
       const slides = content.split(/---/).map((k) => k.trim());
       const slideCount = slides.length - 1;
       let currentSlide = 0;
@@ -94,5 +106,24 @@ if (contentUrl !== null) {
           renderSlides(slides, currentSlide);
         },
       });
-    });
+    })
+    .catch(() => alert("Unable to present document. Check link."));
+} else {
+  showHello();
 }
+
+const presentButton = document.getElementById("present-button");
+presentButton.onclick = () => {
+  const presentLink = document.getElementById("present-link");
+  console.log(presentLink.value);
+  const plausibleLink = presentLink.value;
+  fetch(plausibleLink)
+    .then((data) => data.text())
+    .then(() => {
+      window.location = window.location.origin + "?url=" + plausibleLink;
+    })
+    .catch((e) => {
+      console.log("Woopsie");
+      console.log(e.message);
+    });
+};

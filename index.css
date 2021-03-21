@@ -58,3 +58,48 @@ pre {
 pre > code {
   font-family: inconsolata;
 }
+
+#hello {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+}
+
+#hello > span {
+  font-size: 1.5rem;
+  color: #b99595;
+}
+
+.urlbox {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  border: 5px solid #b99595;
+}
+
+.urlbox > button,
+.urlbox > input {
+  border: none;
+  font-family: Inconsolata;
+  font-size: 2rem;
+  padding: 10px;
+}
+
+.urlbox > input {
+  outline: none;
+  flex: 1;
+}
+.urlbox > button {
+  background: #b99595;
+  height: 100%;
+  padding-right: 30px;
+  padding-left: 30px;
+  cursor: pointer;
+}
+.urlbox>button:hover{
+  background: #c99595;
+}
