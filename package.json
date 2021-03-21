@@ -1,0 +1,20 @@
+{
+  "name": "marker",
+  "version": "0.0.1",
+  "description": "Online tool to convert markdown to presentations",
+  "main": "index.js",
+  "author": "Abin Simon <mail@meain.io> (https://meain.io/)",
+  "license": "Apache-2.0",
+  "scripts": {
+    "start": "snowpack dev",
+    "start-node": "snowpack dev --polyfill-node",
+    "build": "snowpack build",
+    "snowpack": "snowpack"
+  },
+  "devDependencies": {
+    "snowpack": "^3.1.2"
+  },
+  "dependencies": {
+    "tinykeys": "^1.1.1"
+  }
+}
