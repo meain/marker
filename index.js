@@ -7,11 +7,22 @@
 // expose soe theme features in url (progressbar color)
 // cache all slides (at least next slide) in background (useful for images)
 
-const md = window.markdownit();
+const md = markdownit({
+  highlight: function (str, lang) {
+    if (lang && hljs.getLanguage(lang)) {
+      try {
+        return hljs.highlight(lang, str).value;
+      } catch (__) {}
+    }
+
+    return ""; // use external default escaping
+  },
+});
 const keys = window.tinykeys;
 
 const urlParams = new URLSearchParams(window.location.search);
-console.log("url:", urlParams.get("url"));
+const contentUrl = urlParams.get("url");
+// console.log("url:", urlParams.get("url"));
 
 function renderMarkdown(doc) {
   const result = md.render(doc);
@@ -50,30 +61,38 @@ No, this is just \`code\`.
 
 ---
 
-# Boo 🐶
+Boo 🐶
 
 ![sample-image](https://puppytoob.com/wp-content/uploads/2018/02/Boo-Dog-1.jpg)
 `;
 
-const slides = sampleContent.split(/---/).map((k) => k.trim());
-const slideCount = slides.length - 1;
-let currentSlide = 3;
-renderSlides(slides, currentSlide);
-keys(window, {
-  Space: () => {
-    if (currentSlide < slideCount) currentSlide += 1;
-    renderSlides(slides, currentSlide);
-  },
-  ArrowRight: () => {
-    if (currentSlide < slideCount) currentSlide += 1;
-    renderSlides(slides, currentSlide);
-  },
-  ArrowLeft: () => {
-    if (currentSlide > 0) currentSlide -= 1;
-    renderSlides(slides, currentSlide);
-  },
-  "Shift+Space": () => {
-    if (currentSlide > 0) currentSlide -= 1;
-    renderSlides(slides, currentSlide);
-  },
-});
+if (contentUrl !== null) {
+  fetch(contentUrl)
+    .then((data) => data.text())
+    .then((content) => {
+      // console.log(content);
+      content = sampleContent; // TODO: remove this in prod
+      const slides = content.split(/---/).map((k) => k.trim());
+      const slideCount = slides.length - 1;
+      let currentSlide = 0;
+      renderSlides(slides, currentSlide);
+      keys(window, {
+        Space: () => {
+          if (currentSlide < slideCount) currentSlide += 1;
+          renderSlides(slides, currentSlide);
+        },
+        ArrowRight: () => {
+          if (currentSlide < slideCount) currentSlide += 1;
+          renderSlides(slides, currentSlide);
+        },
+        ArrowLeft: () => {
+          if (currentSlide > 0) currentSlide -= 1;
+          renderSlides(slides, currentSlide);
+        },
+        "Shift+Space": () => {
+          if (currentSlide > 0) currentSlide -= 1;
+          renderSlides(slides, currentSlide);
+        },
+      });
+    });
+}
