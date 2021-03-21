@@ -1,12 +1,18 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  padding: 0;
+  padding: 50px;
   font-family: Inconsolata;
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 2.5rem;
+  overflow: hidden;
 }
 
 div#content {
@@ -23,4 +29,31 @@ div#slide-count {
   right: 10px;
   bottom: 10px;
   color: #ccc;
+}
+
+div#progressbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10vw;
+  height: 1px;
+  background: #c3c3ec;
+}
+
+img {
+  /* max-width: 100%; */
+  /* max-height: 100%; */
+  max-width: 60vw;
+  max-height: 60vh;
+  height: auto;
+  width: auto;
+}
+
+pre {
+  background: #f2f2f2;
+  padding: 10px;
+}
+
+pre > code {
+  font-family: inconsolata;
 }
