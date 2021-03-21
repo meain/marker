@@ -13,6 +13,11 @@ function renderSlideCounter(current, max) {
   slide_count.innerHTML = `${current}/${max}`;
 }
 
+function renderSlides(slides, currentSlide) {
+  renderMarkdown(slides[currentSlide]);
+  renderSlideCounter(currentSlide + 1, slides.length);
+}
+
 const sampleContent = `
 Is _this_ some kind of **magic**?
 ---
@@ -22,18 +27,22 @@ No, this is just \`code\`.
 const slides = sampleContent.split(/---/).map((k) => k.trim());
 const slideCount = slides.length - 1;
 let currentSlide = 0;
-renderMarkdown(slides[currentSlide]);
-renderSlideCounter(currentSlide, slideCount);
+renderSlides(slides, currentSlide);
 keys(window, {
   Space: () => {
-    console.log("Next slide");
-    if (currentSlide < slideCount) {
-      currentSlide += 1;
-    } else {
-      // TODO: remove this later
-      currentSlide = 0;
-    }
-    renderMarkdown(slides[currentSlide]);
-    renderSlideCounter(currentSlide, slideCount);
+    if (currentSlide < slideCount) currentSlide += 1;
+    renderSlides(slides, currentSlide);
+  },
+  ArrowRight: () => {
+    if (currentSlide < slideCount) currentSlide += 1;
+    renderSlides(slides, currentSlide);
+  },
+  ArrowLeft: () => {
+    if (currentSlide > 0) currentSlide -= 1;
+    renderSlides(slides, currentSlide);
+  },
+  "Shift+Space": () => {
+    if (currentSlide > 0) currentSlide -= 1;
+    renderSlides(slides, currentSlide);
   },
 });
