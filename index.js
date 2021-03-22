@@ -6,6 +6,7 @@
 // few basic themes
 // expose soe theme features in url (progressbar color)
 // cache all slides (at least next slide) in background (useful for images)
+// option to add a watermark (specify position - default: bottom left | pass in an image url)
 
 const md = markdownit({
   highlight: function (str, lang) {
