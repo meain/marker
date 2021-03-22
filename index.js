@@ -44,29 +44,6 @@ function renderSlides(slides, currentSlide) {
   renderSlideCounter(currentSlide + 1, slides.length);
 }
 
-const sampleContent = `
-Let me show you some code.
-
-\`\`\`python
-import os
-os.environ["HOST"].startswith("linux")
-\`\`\`
-
----
-
-Is _this_ some kind of **magic**?
-
----
-
-No, this is just \`code\`.
-
----
-
-Boo 🐶
-
-![sample-image](https://puppytoob.com/wp-content/uploads/2018/02/Boo-Dog-1.jpg)
-`;
-
 const hello = document.getElementById("hello");
 const present = document.getElementById("present");
 function showHello() {
@@ -84,7 +61,6 @@ if (contentUrl !== null) {
     .then((content) => {
       console.log(content);
       showPresentation();
-      // content = sampleContent; // TODO: remove this in prod
       const slides = content.split(/\n---/).map((k) => k.trim());
       const slideCount = slides.length - 1;
       let currentSlide = 0;
