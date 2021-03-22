@@ -25,11 +25,11 @@ And tables as well, why not?
 
 | Fruit      | Likeability Score |
 | ---------- | :---------------: |
-| Apple      | 6                 |
-| Watermelon | 7                 |
-| Kiwi       | 7                 |
-| Mango      | 8                 |
-| Strawberry | 6                 |
+| Apple      |         6         |
+| Watermelon |         7         |
+| Kiwi       |         7         |
+| Mango      |         8         |
+| Strawberry |         6         |
 
 ---
 
