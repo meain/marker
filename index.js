@@ -108,7 +108,7 @@ if (contentUrl !== null) {
         },
       });
     })
-    .catch(() => alert("Unable to present document. Check link."));
+    .catch(() => alert("Unable to present document. Make sure the link is valid."));
 } else {
   showHello();
 }
