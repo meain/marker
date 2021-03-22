@@ -85,7 +85,7 @@ if (contentUrl !== null) {
       console.log(content);
       showPresentation();
       // content = sampleContent; // TODO: remove this in prod
-      const slides = content.split(/---/).map((k) => k.trim());
+      const slides = content.split(/\n---/).map((k) => k.trim());
       const slideCount = slides.length - 1;
       let currentSlide = 0;
       renderSlides(slides, currentSlide);
