@@ -36,7 +36,7 @@ div#progressbar {
   top: 0;
   left: 0;
   width: 10vw;
-  height: 1px;
+  height: 5px;
   background: #c3c3ec;
 }
 
