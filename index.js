@@ -84,7 +84,10 @@ if (contentUrl !== null) {
         },
       });
     })
-    .catch(() => alert("Unable to present document. Make sure the link is valid."));
+    .catch(() => {
+      alert("Unable to present document. Make sure the link is valid.");
+      showHello();
+    });
 } else {
   showHello();
 }
