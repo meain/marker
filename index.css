@@ -57,6 +57,8 @@ pre {
 
 pre > code {
   font-family: inconsolata;
+  background: transparent;
+  padding: 0;
 }
 
 #hello {
