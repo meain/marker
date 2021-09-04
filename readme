@@ -1,4 +1,12 @@
 marker
 
-Convert any md file on the web into a presentation.
-> This only really works for really simple presentations.
+Markdown based presentation tool, the good parts.
+
+This is yet another markdown based tool,
+but we don't provide you an editor, text editor integration or a cli.
+This is ideal when you want to to create a super simple presentation.
+
+Sample workflow:
+- You write markdown
+- Host it on Github gist
+- Use marker to "create" a presentation
