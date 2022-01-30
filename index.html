@@ -10,12 +10,14 @@
   <body>
     <div id="hello" style="display: none">
       <h1>marker 📜</h1>
-      <span>
-        Present without the hassle. All you need is a markdown source.
-      </span>
+      <span> Present without the hassle. All you need is a markdown source. </span>
       <div class="urlbox">
         <input id="present-link" placeholder="Mardown content URL" />
-        <button id="present-button">Present</button>
+        <div id="file-uploader" class="fileUpload present-button">
+          <span>or upload a file</span>
+          <input type="file" class="upload" />
+        </div>
+        <button id="present-button" class="present-button" style="display:none">Present</button>
       </div>
       <span><a href="/?url=/sample.md">Chekcout sample presentation</a></span>
     </div>
