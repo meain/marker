@@ -9,6 +9,7 @@
 // option to add a watermark (specify position - default: bottom left | pass in an image url)
 
 const md = markdownit({
+  html: true,
   highlight: function (str, lang) {
     if (lang && hljs.getLanguage(lang)) {
       try {
